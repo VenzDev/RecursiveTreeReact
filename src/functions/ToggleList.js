@@ -1,14 +1,14 @@
+const CLOSED = "--closed";
+const ACTIVE = "--active";
+const DIV = "DIV";
+const DATA_TYPE = "data-type";
+const RADIO = "radio";
+const DATA_LIST = "data-list";
+
 export default (id) => {
   const clickedElement = document.getElementById(id);
   const childs = clickedElement.parentElement.children;
   const button = getButtonById(clickedElement);
-
-  const CLOSED = "--closed";
-  const ACTIVE = "--active";
-  const DIV = "DIV";
-  const DATA_TYPE = "data-type";
-  const RADIO = "radio";
-  const DATA_LIST = "data-list";
 
   //prevent from changes in element without children!
   if (!clickedElement.getAttribute("data-has_children")) return;
@@ -51,9 +51,6 @@ const expandButton = (button) => {
 const getButtonById = (element) => document.querySelector(`[data-button='${element.id}']`);
 
 const toggleListClass = (element) => {
-  const CLOSED = "--closed";
-  const ACTIVE = "--active";
-
   if (element.classList.contains(CLOSED)) element.classList.replace(CLOSED, ACTIVE);
   else element.classList.replace(ACTIVE, CLOSED);
 };
